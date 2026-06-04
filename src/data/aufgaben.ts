@@ -1,0 +1,173 @@
+export type Difficulty = 1 | 2
+
+export interface Aufgabe {
+  id: string
+  emoji: string
+  title: string
+  description: string
+  difficulty: Difficulty
+  points: number
+}
+
+export const AUFGABEN_POOL: Aufgabe[] = [
+  {
+    id: 'rote_autos',
+    emoji: '🚗',
+    title: 'Rote Autos',
+    description: 'Zähle 5 rote Autos!',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'ausland_kennzeichen',
+    emoji: '🔤',
+    title: 'Auslands-Kennzeichen',
+    description: 'Finde ein Kennzeichen aus einem anderen Land als Deutschland!',
+    difficulty: 2,
+    points: 2,
+  },
+  {
+    id: 'geraeusch',
+    emoji: '🔊',
+    title: 'Tier-Geräusch',
+    description: 'Mach ein Tier-Geräusch — die anderen raten, welches Tier es ist!',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'farben',
+    emoji: '🎨',
+    title: 'Farb-Jagd',
+    description: 'Wer findet zuerst 3 gelbe Autos?',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'lied',
+    emoji: '🎵',
+    title: 'Lied singen',
+    description: 'Sing ein Kinderlied — die anderen dürfen mitmachen!',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'wolken',
+    emoji: '☁️',
+    title: 'Wolken-Formen',
+    description: 'Finde eine Wolke, die wie ein Tier aussieht. Zeig sie allen!',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'zwanzig_fragen',
+    emoji: '🧠',
+    title: '20 Fragen',
+    description: 'Denke dir ein Tier aus — die anderen stellen Ja/Nein-Fragen und müssen es erraten!',
+    difficulty: 2,
+    points: 2,
+  },
+  {
+    id: 'stille',
+    emoji: '🤫',
+    title: 'Stille Minute',
+    description: 'Alle schweigen genau 1 Minute lang. Wer schafft es?',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'nummernschild',
+    emoji: '🔢',
+    title: 'Nummernspiel',
+    description: 'Addiere alle Ziffern auf einem Nummernschild. Wer hat die höchste Summe?',
+    difficulty: 2,
+    points: 2,
+  },
+  {
+    id: 'schnell',
+    emoji: '⚡',
+    title: 'Wer ist schneller?',
+    description: 'Wer sieht zuerst einen blauen LKW? Auf die Plätze, fertig, los!',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'schoenste_bild',
+    emoji: '🪟',
+    title: 'Schönstes Bild',
+    description: 'Beschreibe das Schönste, was du gerade durchs Fenster siehst!',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'hauptstaedte',
+    emoji: '🗺️',
+    title: 'Hauptstädte',
+    description: 'Nenne die Hauptstadt von Frankreich und Deutschland. Weißt du sie?',
+    difficulty: 2,
+    points: 2,
+  },
+  {
+    id: 'klatsch',
+    emoji: '👏',
+    title: 'Klatsch-Rhythmus',
+    description: 'Klatscht zusammen denselben Rhythmus — erst langsam, dann immer schneller!',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'witz',
+    emoji: '😄',
+    title: 'Witz erzählen',
+    description: 'Erzähle deinen besten Witz! Wer lacht am meisten?',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'autobahn_abc',
+    emoji: '🔡',
+    title: 'Autobahn-ABC',
+    description: 'Findet gemeinsam alle Buchstaben von A bis Z auf Schildern!',
+    difficulty: 2,
+    points: 2,
+  },
+  {
+    id: 'regenbogen',
+    emoji: '🌈',
+    title: 'Regenbogen-Autos',
+    description: 'Findet Autos in der Reihenfolge: Rot, dann Orange, dann Gelb!',
+    difficulty: 2,
+    points: 2,
+  },
+  {
+    id: 'zählen_fenster',
+    emoji: '🌳',
+    title: 'Blitz-Zählen',
+    description: 'Zähle in 30 Sekunden so viele Bäume wie möglich! Alle zählen mit.',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'sprache',
+    emoji: '🌍',
+    title: 'Auf Englisch!',
+    description: 'Beschreibe 3 Dinge, die du siehst — aber nur auf Englisch!',
+    difficulty: 2,
+    points: 2,
+  },
+  {
+    id: 'verdoppeln',
+    emoji: '✌️',
+    title: 'Verdoppeln',
+    description: 'Nenne 5 Tiere — immer abwechselnd! (Hund, Katze, Hund, Katze...)',
+    difficulty: 1,
+    points: 1,
+  },
+  {
+    id: 'alphabet_namen',
+    emoji: '🅰️',
+    title: 'Namen-ABC',
+    description: 'Nennt abwechselnd Namen, die mit A, B, C... beginnen. Wer bleibt länger dabei?',
+    difficulty: 2,
+    points: 2,
+  },
+]
