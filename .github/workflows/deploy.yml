@@ -39,5 +39,15 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Enable GitHub Pages (idempotent)
+        run: |
+          curl -s -o /dev/null -w "Pages API: %{http_code}\n" \
+            -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            -d '{"build_type":"workflow"}' \
+            https://api.github.com/repos/${{ github.repository }}/pages || true
+
       - id: deployment
         uses: actions/deploy-pages@v4
