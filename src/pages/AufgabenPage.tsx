@@ -20,7 +20,7 @@ export function AufgabenPage({ onScore }: AufgabenPageProps) {
         <p className="text-gray-500 text-center">Ihr seid echte Reise-Champions!</p>
         <button
           onClick={restart}
-          className="bg-amber-400 text-white font-bold text-xl px-8 py-4 rounded-2xl shadow-md active:scale-95 transition-transform touch-manipulation"
+          className="bg-amber-500 text-white font-bold text-xl px-8 py-4 rounded-2xl shadow-md active:scale-95 transition-transform touch-manipulation"
         >
           Nochmal spielen 🔄
         </button>
@@ -29,31 +29,33 @@ export function AufgabenPage({ onScore }: AufgabenPageProps) {
   }
 
   return (
-    <div className="flex flex-col flex-1 gap-4 py-4">
-      <div className="flex items-center justify-between px-4">
+    <div className="flex flex-col flex-1">
+      <div className="flex items-center justify-between px-4 pt-4 pb-1">
         <h1 className="text-xl font-bold text-gray-800">Aufgaben 📋</h1>
         <span className="text-sm text-gray-400 font-medium">
           {currentIndex + 1} / {totalCards}
         </span>
       </div>
 
-      <div className="w-full bg-gray-100 h-2 mx-4 rounded-full overflow-hidden" style={{ width: 'calc(100% - 2rem)' }}>
+      <div className="mx-4 mb-3 bg-gray-200 h-1.5 rounded-full overflow-hidden">
         <div
-          className="bg-amber-400 h-full rounded-full transition-all duration-300"
-          style={{ width: `${((currentIndex) / totalCards) * 100}%` }}
+          className="bg-amber-500 h-full rounded-full transition-all duration-500"
+          style={{ width: `${(currentIndex / totalCards) * 100}%` }}
         />
       </div>
 
-      {currentCard && (
-        <>
-          <MissionCard aufgabe={currentCard} key={currentCard.id} />
-          <MissionControls
-            onComplete={complete}
-            onSkip={skip}
-            points={currentCard.points}
-          />
-        </>
-      )}
+      <div className="flex-1 flex flex-col justify-center gap-4 pb-4">
+        {currentCard && (
+          <>
+            <MissionCard aufgabe={currentCard} key={currentCard.id} />
+            <MissionControls
+              onComplete={complete}
+              onSkip={skip}
+              points={currentCard.points}
+            />
+          </>
+        )}
+      </div>
     </div>
   )
 }

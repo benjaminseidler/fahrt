@@ -12,22 +12,22 @@ export function BingoCell({ item, isMarked, isWinning, onToggle }: BingoCellProp
     <button
       onClick={onToggle}
       className={`
-        relative flex flex-col items-center justify-center rounded-xl border-2 p-1 gap-0.5
+        relative flex flex-col items-center justify-center rounded-xl border p-1 gap-0.5
         transition-all duration-150 active:scale-90 select-none touch-manipulation
         ${isWinning
-          ? 'bg-yellow-300 border-yellow-500 ring-2 ring-yellow-400 shadow-lg'
+          ? 'bg-yellow-300 border-yellow-400 ring-2 ring-yellow-400 shadow-md'
           : isMarked
-            ? 'bg-green-400 border-green-600 shadow-md'
-            : 'bg-white border-amber-200 hover:border-amber-400'
+            ? 'bg-green-500 border-green-600 shadow-md'
+            : 'bg-white border-gray-200 shadow-sm hover:border-amber-300 hover:shadow-md'
         }
       `}
     >
-      <span className="text-2xl leading-none">{item.emoji}</span>
-      <span className={`text-xs font-medium leading-tight text-center ${isMarked ? 'text-white' : 'text-gray-700'}`}>
+      <span className="text-3xl leading-none">{item.emoji}</span>
+      <span className={`text-[10px] font-semibold leading-tight text-center ${isMarked ? 'text-white' : 'text-gray-600'}`}>
         {item.label}
       </span>
       {isMarked && (
-        <span className="absolute top-0.5 right-0.5 text-xs leading-none">✓</span>
+        <span className="absolute top-0.5 right-1 text-[10px] text-white leading-none">✓</span>
       )}
     </button>
   )
