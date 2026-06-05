@@ -16,7 +16,7 @@ function App() {
   }, [setScore])
 
   return (
-    <div className="flex flex-col min-h-svh bg-amber-50">
+    <div className="flex flex-col h-svh bg-amber-50">
       <header className="flex items-center justify-between px-4 py-3 bg-white border-b-2 border-amber-200 sticky top-0 z-10 shadow-sm">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🚗</span>
@@ -25,7 +25,7 @@ function App() {
         <ScoreDisplay score={score} />
       </header>
 
-      <main className="flex flex-col flex-1 overflow-auto pb-2">
+      <main className="flex flex-col flex-1 min-h-0 overflow-auto">
         {activeTab === 'bingo' && <BingoPage />}
         {activeTab === 'aufgaben' && <AufgabenPage onScore={handleScore} />}
         {activeTab === 'quiz' && <QuizPage onScore={handleScore} />}
