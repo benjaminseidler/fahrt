@@ -4,6 +4,7 @@ import type { Tab } from './components/layout/TabBar'
 import { ScoreDisplay } from './components/layout/ScoreDisplay'
 import { BingoPage } from './pages/BingoPage'
 import { AufgabenPage } from './pages/AufgabenPage'
+import { QuizPage } from './pages/QuizPage'
 import { useLocalStorage } from './hooks/useLocalStorage'
 
 function App() {
@@ -25,11 +26,9 @@ function App() {
       </header>
 
       <main className="flex flex-col flex-1 overflow-auto pb-2">
-        {activeTab === 'bingo' ? (
-          <BingoPage />
-        ) : (
-          <AufgabenPage onScore={handleScore} />
-        )}
+        {activeTab === 'bingo' && <BingoPage />}
+        {activeTab === 'aufgaben' && <AufgabenPage onScore={handleScore} />}
+        {activeTab === 'quiz' && <QuizPage onScore={handleScore} />}
       </main>
 
       <TabBar activeTab={activeTab} onTabChange={setActiveTab} />
