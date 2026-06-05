@@ -2,7 +2,7 @@
 
 # Projektkontext
 
-- **Zweck**: Kinder-Reise-PWA zum Beschäftigen von Kindern (6 und 8 Jahre) auf langen Autofahrten — Reisebingo und Aufgaben-Karten mit Punkte-System. Vollständig offline-fähig.
+- **Zweck**: Kinder-Reise-PWA zum Beschäftigen von Kindern (6 und 8 Jahre) auf langen Autofahrten — Reisebingo, Aufgaben-Karten und Quiz mit Punkte-System. Vollständig offline-fähig.
 - **Stack**: React 19 + Vite 8 + TypeScript + Tailwind CSS v4 + vite-plugin-pwa (Workbox)
 - **Deployment**: GitHub → GitHub Actions baut auf Push → `gh-pages`-Branch → GitHub Pages unter https://benjaminseidler.github.io/fahrt/
 
@@ -46,17 +46,20 @@ npx tsc --noEmit # Type-Check ohne Build
 
 ```
 src/
-  data/           # Statische Inhalte (bingoItems.ts, aufgaben.ts)
-  hooks/          # useBingo, useAufgaben, useLocalStorage
+  data/           # Statische Inhalte (bingoItems.ts, aufgaben.ts, quizFragen.ts)
+  hooks/          # useBingo, useAufgaben, useQuiz, useLocalStorage
   components/
     layout/       # TabBar, ScoreDisplay
     bingo/        # BingoBoard, BingoCell, BingoWin
     aufgaben/     # MissionCard, MissionControls
-  pages/          # BingoPage, AufgabenPage
+    quiz/         # QuizCard
+  pages/          # BingoPage, AufgabenPage, QuizPage
   App.tsx         # Tab-State + Score-State (useLocalStorage)
 ```
 
-**State:** Alles in `localStorage` — drei Keys: `fahrt_bingo`, `fahrt_aufgaben`, `fahrt_score`.
+**State:** Alles in `localStorage` — vier Keys: `fahrt_bingo`, `fahrt_aufgaben`, `fahrt_quiz`, `fahrt_score`.
+
+**Layout:** Root-Element nutzt `h-svh` (nicht `min-h-svh`), damit `main` eine bounded height hat und seiteninternes Scroll-Layout (z.B. Quiz-Footer) korrekt funktioniert.
 
 **PWA:** `vite-plugin-pwa` mit Workbox. Base path ist `/fahrt/` wegen GitHub Pages.
 
@@ -64,6 +67,7 @@ src/
 
 - **Bingo-Items:** `src/data/bingoItems.ts` — Array erweitern, mind. 16 Items nötig
 - **Aufgaben:** `src/data/aufgaben.ts` — `difficulty: 1` (leicht, 1 Punkt) oder `2` (mittel, 2 Punkte)
+- **Quiz-Fragen:** `src/data/quizFragen.ts` — `answers` immer 4 Optionen, `correctIndex: 0–3`, `difficulty: 1|2`
 
 ## Deployment
 
